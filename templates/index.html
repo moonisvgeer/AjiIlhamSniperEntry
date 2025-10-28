@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Aji Ilham Sniper Entry - Upload Chart</title>
+</head>
+<body>
+  <h1>Upload Chart XAUUSD</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+      {% for m in messages %}
+        <li>{{ m }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit">Upload & Analisa</button>
+  </form>
+
+  <hr/>
+  <p>Folder uploads: <code>{{ config['UPLOAD_FOLDER'] }}</code></p>
+</body>
+</html>
